@@ -1,0 +1,3 @@
+Dripper:
+A Jabber client completely written in Scala.
+Uses the Smack API from IgniteRealTime.
