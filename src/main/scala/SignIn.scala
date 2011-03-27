@@ -6,18 +6,16 @@ package org.antitech.dripper
 
 import scala.swing._
 import event._
-import scala.swing.BoxPanel._
-import java.awt.Insets
 
 
 object SignIn extends SimpleSwingApplication {
-  lazy val ui = new BoxPanel {
+  lazy val ui = new BoxPanel(Orientation.Vertical) {
     val shouldFill = true
 
     val hostLabel = new Label {
       text = "HostName: "
     }
-    layout(hostLabel)
+    contents += hostLabel
     
     // HostName Text Field
     def hostField = new TextField {
@@ -25,7 +23,12 @@ object SignIn extends SimpleSwingApplication {
       columns = 5
       horizontalAlignment = Alignment.Right
     }
-    layout(hostField)
+    contents += hostField
+
+    val userLabel = new Label {
+      text = "UserName: "
+    }
+    contents += userLabel
 
     // Username Text Field
     def userField = new TextField {
@@ -33,10 +36,10 @@ object SignIn extends SimpleSwingApplication {
       columns = 5
       horizontalAlignment = Alignment.Right
     }
-    layout(userField)
+    contents += userField
 
     val loginButton = new Button("Login")
-    layout(loginButton)
+    contents += loginButton
 
     listenTo(loginButton)
     reactions += {
