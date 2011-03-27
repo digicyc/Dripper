@@ -21,7 +21,7 @@ object SignIn extends SimpleSwingApplication {
     def hostField = new TextField {
       text = ""
       columns = 5
-      horizontalAlignment = Alignment.Right
+      horizontalAlignment = Alignment.Left
     }
     contents += hostField
 
@@ -34,19 +34,26 @@ object SignIn extends SimpleSwingApplication {
     def userField = new TextField {
       text = ""
       columns = 5
-      horizontalAlignment = Alignment.Right
+      horizontalAlignment = Alignment.Left
     }
     contents += userField
 
+    // BUttons
     val loginButton = new Button("Login")
-    contents += loginButton
+    val cancelButton = new Button("Cancel")
 
     listenTo(loginButton)
+    listenTo(cancelButton)
     reactions += {
       case ButtonClicked(loginButton) =>
         // Authenticate with XMPP Server
-        
     }
+
+    val buttonLayout = new BoxPanel(Orientation.Horizontal) {
+      contents += loginButton
+      contents += cancelButton
+    }
+    contents += buttonLayout
   }
 
   def top = new MainFrame {
