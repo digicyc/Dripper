@@ -18,7 +18,7 @@ object SignIn extends SimpleSwingApplication {
     contents += hostLabel
     
     // HostName Text Field
-    def hostField = new TextField {
+    val hostField = new TextField {
       text = ""
       columns = 5
       horizontalAlignment = Alignment.Left
@@ -31,22 +31,21 @@ object SignIn extends SimpleSwingApplication {
     contents += userLabel
 
     // Username Text Field
-    def userField = new TextField {
+    val userField = new TextField {
       text = ""
       columns = 5
       horizontalAlignment = Alignment.Left
     }
     contents += userField
 
-    // BUttons
+    // Buttons
     val loginButton = new Button("Login")
     val cancelButton = new Button("Cancel")
 
-    listenTo(loginButton)
-    listenTo(cancelButton)
+    listenTo(loginButton, cancelButton)
     reactions += {
-      case ButtonClicked(loginButton) =>
-        // Authenticate with XMPP Server
+      case ButtonClicked(buttonClicked) =>
+        processButton(buttonClicked.text)
     }
 
     val buttonLayout = new BoxPanel(Orientation.Horizontal) {
@@ -54,6 +53,17 @@ object SignIn extends SimpleSwingApplication {
       contents += cancelButton
     }
     contents += buttonLayout
+
+    def processButton(text: String) {
+      if( text == "Login" ) {
+        println("Login to Jabber")
+        println("Host: " + hostField.text)
+        println("User: " + userField.text)
+      }
+      else if( text == "Cancel" ) {
+        println("Cancel and Close Down")
+      }
+    }
   }
 
   def top = new MainFrame {
