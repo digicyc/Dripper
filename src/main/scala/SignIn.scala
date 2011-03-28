@@ -10,25 +10,27 @@ import event._
 
 object SignIn extends SimpleSwingApplication {
   lazy val ui = new BoxPanel(Orientation.Vertical) {
-    val shouldFill = true
+    val hostLayout = new BoxPanel(Orientation.Horizontal)
+    val userLayout = new BoxPanel(Orientation.Horizontal)
+    val passLayout = new BoxPanel(Orientation.Horizontal)
 
     val hostLabel = new Label {
       text = "HostName: "
     }
-    contents += hostLabel
-    
+    hostLayout.contents += hostLabel
+
     // HostName Text Field
     val hostField = new TextField {
       text = ""
-      columns = 5
-      horizontalAlignment = Alignment.Left
+      columns = 2
+      horizontalAlignment = Alignment.Right
     }
-    contents += hostField
+    hostLayout.contents += hostField
 
     val userLabel = new Label {
       text = "UserName: "
     }
-    contents += userLabel
+    userLayout.contents += userLabel
 
     // Username Text Field
     val userField = new TextField {
@@ -36,20 +38,19 @@ object SignIn extends SimpleSwingApplication {
       columns = 5
       horizontalAlignment = Alignment.Right
     }
-    contents += userField
+    userLayout.contents += userField
 
     val passLabel = new Label {
       text = "Password: "
-      horizontalAlignment = Alignment.Left
     }
-    contents += passLabel
+    passLayout.contents += passLabel
 
     val passField = new TextField {
       text = ""
       columns = 5
       horizontalAlignment = Alignment.Right
     }
-    contents += passField
+    passLayout.contents += passField
     // Buttons
     val loginButton = new Button("Login")
     val cancelButton = new Button("Cancel")
@@ -63,7 +64,12 @@ object SignIn extends SimpleSwingApplication {
     val buttonLayout = new BoxPanel(Orientation.Horizontal) {
       contents += loginButton
       contents += cancelButton
+      border = Swing.EmptyBorder(10, 10, 10, 10)
     }
+    border = Swing.EmptyBorder(5, 5, 5, 5)
+    contents += hostLayout
+    contents += userLayout
+    contents += passLayout
     contents += buttonLayout
 
     def processButton(text: String) {
