@@ -34,10 +34,22 @@ object SignIn extends SimpleSwingApplication {
     val userField = new TextField {
       text = ""
       columns = 5
-      horizontalAlignment = Alignment.Left
+      horizontalAlignment = Alignment.Right
     }
     contents += userField
 
+    val passLabel = new Label {
+      text = "Password: "
+      horizontalAlignment = Alignment.Left
+    }
+    contents += passLabel
+
+    val passField = new TextField {
+      text = ""
+      columns = 5
+      horizontalAlignment = Alignment.Right
+    }
+    contents += passField
     // Buttons
     val loginButton = new Button("Login")
     val cancelButton = new Button("Cancel")
@@ -62,6 +74,7 @@ object SignIn extends SimpleSwingApplication {
       }
       else if( text == "Cancel" ) {
         println("Cancel and Close Down")
+        System.exit(0)
       }
     }
   }
