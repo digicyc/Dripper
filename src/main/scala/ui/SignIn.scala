@@ -1,4 +1,4 @@
-package org.antitech.dripper
+package org.antitech.dripper.ui
 
 /*
 * Popup window to sign into an actual Jabber Server.
@@ -7,8 +7,9 @@ package org.antitech.dripper
 import scala.swing._
 import event._
 
+import org.antitech.dripper.xmpp.{AuthManager}
 
-object SignIn extends SimpleSwingApplication {
+class SignIn extends Frame {
   lazy val ui = new BoxPanel(Orientation.Vertical) {
     val hostLayout = new BoxPanel(Orientation.Horizontal)
     val userLayout = new BoxPanel(Orientation.Horizontal)
@@ -73,20 +74,39 @@ object SignIn extends SimpleSwingApplication {
     contents += buttonLayout
 
     def processButton(text: String) {
-      if( text == "Login" ) {
+      if (text == "Login") {
         println("Login to Jabber")
         println("Host: " + hostField.text)
         println("User: " + userField.text)
+        val auth = new AuthManager()
+        val loggedIn = auth.login()
+        if (auth.login()) {
+          val roster = new Roster()
+          roster.buildRoster()
+          dispose()
+        }
       }
-      else if( text == "Cancel" ) {
+
+      else if (text == "Cancel") {
         println("Cancel and Close Down")
         System.exit(0)
       }
     }
   }
 
-  def top = new MainFrame {
-    title = "Dripper"
-    contents = ui
+  reactions += {
+    case WindowClosing(_) => close
+  }
+
+  title = "Dripper"
+  contents = ui
+  peer.setLocationRelativeTo(null)
+
+  pack
+  visible = true
+
+  override def close {
+    dispose
+    System.exit(0)
   }
 }

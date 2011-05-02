@@ -4,10 +4,12 @@ package org.antitech.dripper
  */
 import org.jivesoftware.smack._
 import net.lag.configgy.Configgy
+import org.antitech.dripper.ui.{SignIn}
 
-class Dripper {
-  def init(): Unit = {
-  /*  // Setup configuration.
+object Dripper {
+
+  def getHome = {
+    // Setup configuration.
     // TODO: Installer should create folder .dripper and store files there.
     // TODO: Read conf file from user_home/.dripper/conf
     val fileSep = System.getProperty("file.separator")
@@ -16,8 +18,12 @@ class Dripper {
     val config = Configgy.config
 
     // TODO: Allow multiple connections.
-    val serverAddr = config("server.address")
-    val serverPort = config("server.port")
-    val xmppConfig = new ConnectionConfiguration(serverAddr, serverPort.toInt)*/
+    //val serverAddr = config("server.address")
+    //val serverPort = config("server.port")
+    //val xmppConfig = new ConnectionConfiguration(serverAddr, serverPort.toInt)*/
+  }
+
+  def main(args: Array[String]): Unit = {
+    new SignIn
   }
 }
