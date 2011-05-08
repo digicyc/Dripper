@@ -9,4 +9,8 @@ package chat
  * Our Chat Window in which we send and receive messages from.
  */
 
-class ChatWindow
+import swing._
+
+class ChatWindow(val jid: String) {
+  
+}
