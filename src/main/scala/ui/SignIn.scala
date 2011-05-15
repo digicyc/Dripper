@@ -6,8 +6,10 @@ package org.antitech.dripper.ui
 
 import scala.swing._
 import event._
+import org.jivesoftware.smack.XMPPConnection
+import org.antitech.dripper.xmpp.{XMPPSession}
+import us.troutwine.barkety.JID
 
-import org.antitech.dripper.xmpp.{AuthManager}
 
 class SignIn extends Frame {
   lazy val ui = new BoxPanel(Orientation.Vertical) {
@@ -78,9 +80,11 @@ class SignIn extends Frame {
         println("Login to Jabber")
         println("Host: " + hostField.text)
         println("User: " + userField.text)
-        val auth = new AuthManager()
-        val loggedIn = auth.login()
-        if (auth.login()) {
+
+        val myJID = JID(userField.text + "@" + hostField.text)
+        val session = new XMPPSession(myJID)
+
+        if (session.loggedIn) {
           val roster = new Roster()
           roster.buildRoster()
           dispose()
