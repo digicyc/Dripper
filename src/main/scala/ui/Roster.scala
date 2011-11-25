@@ -28,8 +28,8 @@ class Roster extends Frame {
 
   val rosterList = new GridPanel(1, 0) {
     contents += new ScrollPane {
-      val contactList = new ContactList()
-      contents = contactList.myTree
+      //val contactList = new ContactList()
+      //contents = contactList.myTree
 
       visible = true
     }

@@ -16,8 +16,6 @@ class XMPPSession(val myJID: JID) {
     
 
   def loggedIn = {
-    //val server =
-    //  new ConnectionConfiguration(serverAddr, serverPort.toInt)
 
     true
   }
