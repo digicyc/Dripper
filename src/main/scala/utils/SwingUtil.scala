@@ -1,4 +1,4 @@
-package org.antitech.dripper.utils
+package codeoptimus.dripper.utils
 /*
  * Idea from Scalide.
  */

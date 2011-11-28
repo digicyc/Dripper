@@ -1,4 +1,4 @@
-package org.antitech.dripper.xmpp
+package codeoptimus.dripper.xmpp
 
 /**
  *
@@ -6,7 +6,7 @@ package org.antitech.dripper.xmpp
  * TODO: Always keep in mind multiple Jabber accounts support.
  */
 import org.jivesoftware.smack._
-import org.antitech.dripper.ui.Roster
+import codeoptimus.dripper.ui.Roster
 import us.troutwine.barkety.JID
 
 class XMPPSession(val myJID: JID) {

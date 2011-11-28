@@ -1,10 +1,10 @@
-package org.antitech.dripper
+package codeoptimus.dripper
 /*
  * Dripper: Jabber client in Scala using Smack.
  */
 import org.jivesoftware.smack._
 import net.lag.configgy.Configgy
-import org.antitech.dripper.ui.{SignIn}
+import codeoptimus.dripper.ui.SignIn
 
 object Dripper {
 

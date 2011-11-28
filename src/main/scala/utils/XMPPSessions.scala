@@ -1,10 +1,10 @@
-package utils
+package codeoptimus.dripper.utils
 
 /**
  * Manage all XMPP Sessions.
  *
  */
-import org.antitech.dripper.xmpp.XMPPSession
+import codeoptimus.dripper.xmpp.XMPPSession
 
 object XMPPSessions {
   private var xmppSessions = List[XMPPSession]()

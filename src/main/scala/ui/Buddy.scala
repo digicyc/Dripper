@@ -1,4 +1,4 @@
-package org.antitech.dripper.roster
+package codeoptimus.dripper.roster
 
 /**
  * Created by IntelliJ IDEA.

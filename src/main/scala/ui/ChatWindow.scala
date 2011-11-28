@@ -1,4 +1,4 @@
-package chat
+package codeoptimus.dripper.ui
 
 /**
  * Created by IntelliJ IDEA.

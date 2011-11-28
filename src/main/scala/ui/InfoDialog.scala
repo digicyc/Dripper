@@ -7,7 +7,7 @@
  * Parent Dialog Box.
  */
 import javax.swing._
-import org.antitech.dripper.utils.SwingUtil._
+import codeoptimus.dripper.utils.SwingUtil._
 
 class InfoDialog(val frameTitle: String, val insideText: String) extends JDialog {
   val body = new JTextPane()

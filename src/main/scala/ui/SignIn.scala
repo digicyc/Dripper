@@ -1,4 +1,4 @@
-package org.antitech.dripper.ui
+package codeoptimus.dripper.ui
 
 /*
 * Popup window to sign into an actual Jabber Server.
@@ -7,7 +7,7 @@ package org.antitech.dripper.ui
 import scala.swing._
 import event._
 import org.jivesoftware.smack.XMPPConnection
-import org.antitech.dripper.xmpp.{XMPPSession}
+import codeoptimus.dripper.xmpp.{XMPPSession}
 import us.troutwine.barkety.JID
 
 
